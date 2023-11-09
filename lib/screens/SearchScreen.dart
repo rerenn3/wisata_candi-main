@@ -46,7 +46,20 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
           //TODO: 5. Buat ListView hasil pencarian sebagai anak dari Column
-          ListView()
+          ListView.builder(
+              itemCount: _filteredCandis.length,
+              itemBuilder: (context, index){
+                final candi = _filteredCandis[index];
+                return Card(
+                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(candi.imageAsset, fit: BoxFit.cover,),
+                    ],
+                  ),
+                );
+              },)
         ],
       ),
     );
